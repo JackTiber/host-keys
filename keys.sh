@@ -2,7 +2,7 @@
 
 # Add the GitHub user accounts
 USERS=()
-USER_ACCT=ubuntu
+USER_ACCT=ubuntu # Could set to $USER where needed
 USER_SSHDIR=/home/$USER_ACCT/.ssh
 
 sudo apt update
@@ -20,6 +20,6 @@ do
         }
         KEY=$(_jq '.key')
         KEY_NAME=$(_jq '.id')
-        echo $KEY > ./$KEY_NAME
+        echo $KEY >> $USER_SSHDIR/authorized_keys
     done
 done
